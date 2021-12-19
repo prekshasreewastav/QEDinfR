@@ -4,7 +4,7 @@
 # QEDinfR
 
 
-QEDinfR offers tools to facilitate the use of basic quasi-experimental designs for causal inference in observational settings including matching methods, Regression Discontinuity, and Differences-in-Differences.
+QEDinfR offers simple tools to facilitate the use of basic quasi-experimental designs for causal inference in observational settings including matching methods, Regression Discontinuity, and Differences-in-Differences.
 
 ## Installation
 
@@ -18,12 +18,4 @@ remotes::install_github("marginal-latte/QEDinfR")
 
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-library(QEDinfR)
-## basic example code
-```
 

@@ -1,0 +1,38 @@
+---
+title: "Regression Discontinuity Design"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{rdd}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Basic Example Code
+
+\code{QEDinfR} provides functions which make basic Regression Discontinuity designs easy and quick. After specifying your model, the plot method for \code{qed_rdd} objects quickly creates the standard graph which motivates simple regression discontinuity designs.
+
+```{r setup}
+library(QEDinfR)
+data(mlda)
+```
+
+Here we specify the model from the example code, and call the summary function. The data is from a study on the effect of minimum legal drinking age laws, where the discontinuity is at age 21
+
+```{r}
+fit <- qed_rdd("all", "agecell", 21, mlda)
+summary(fit)
+```
+
+And then the graph method:
+
+```{r}
+plot(fit)
+```
+
