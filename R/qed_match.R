@@ -1,3 +1,46 @@
+#'@title qed_match: Greedy Matching (with Propensity Scores or Mahalanobis Distances)
+#'
+#'@description
+#'
+#'Performs Greedy Matching (Nearest Neighbor Matching) in order to balance covariates in observational data
+#'for causal inference.
+#'
+#'@param formula formula, in the format: treatment_variable ~ c(covariates)
+#'@param outcome string, name of outcome variable of interest
+#'@param data dataframe or tibble, data to be used for matching
+#'@param distance string, either "mahalanobis" or "propensityscore" to indicate the distance measure (i.e. criterion mataching is performed on)
+#'@param caliper numeric, indicates the maximum possible distance a match can be made on (by default, NULL)
+#'@param replace logical, indicates whether or not matching must be performed with replacement or without replacement (by default, FALSE)
+#'
+#'
+#'@export
+#'
+#'@importFrom Matching Match
+#'
+#'@details
+#'This function serves as a wrapper for the \code{\link[Matching]{Match}} function in the \strong{Matching} package, and restricts distance measures to Mahalanobis distances
+#'and Propensity Scores (calculated through a logistic regression). It aims to balance the treatment and control groups on all included covariates in order to perform causal analysis.
+#'
+#'
+#'@return an object of class \code{qed_match} that includes outputs from the Match function, along with:
+#'\describe{
+#'   \item{\strong{Matched}}{a dataframe containing matched observations}
+#'   \item{\strong{Data}}{a dataframe containing observations prior to matching}
+#' }
+#'
+#'@seealso \code{\link[Matching]{Match}}
+#'\code{\link[QEDinfR]{summary.qed_match}}
+#'\code{\link[QEDinfR]{test.qed_match}}
+#'
+#'@examples
+#'\dontrun{
+#'data(lalonde)
+#'# For matching with propensity scores:
+#'ps_match <- qed_match(treat ~ age + educ + black, "re78", lalonde, "propensityscore", caliper = NULL, replace = FALSE)
+#'# For matching with Mahalanobis distances:
+#'md_match <- qed_match(treat ~ age + educ + black, "re78", lalonde, "mahalanobis", caliper = NULL, replace = FALSE)
+#'}
+
 
 qed_match <- function(formula, outcome, data, distance, caliper = NULL, replace = FALSE, ...){
 
@@ -15,12 +58,8 @@ qed_match <- function(formula, outcome, data, distance, caliper = NULL, replace 
 
       #add matched observations from data to results
       matched <- data[unlist(ps.match[c("index.treated","index.control")]), ]
-      ps.post <- glm(formula,
-                            family = binomial(),
-                            data = matched)
-      ps.scores.post <- ps.post$fitted.values
 
-      result <- append((ps.match), list("Matched" = matched, "Call" = formula, "Distance" = "Propensity Score", "Data" = data, "Pre-PS" = ps.scores, "Post-PS" = ps.scores.post))
+      result <- append((ps.match), list("Matched" = matched, "Call" = formula, "Distance" = "Propensity Score", "Data" = data, "Outcome" = outcome))
       class(result) <- c("qed_match", "Match")
 
       invisible(result)
@@ -41,7 +80,7 @@ qed_match <- function(formula, outcome, data, distance, caliper = NULL, replace 
       #add matched observations from data to results
       matched <- data[unlist(maha.match[c("index.treated","index.control")]), ]
 
-      result <- append((maha.match), list("Matched" = matched, "Call" = formula, "Distance" = "Mahalanobis", "Data" = data))
+      result <- append((maha.match), list("Matched" = matched, "Call" = formula, "Distance" = "Mahalanobis", "Data" = data, "Outcome" = outcome))
       class(result) <- c("qed_match", "Match")
 
       invisible(result)
@@ -50,6 +89,3 @@ qed_match <- function(formula, outcome, data, distance, caliper = NULL, replace 
 
 }
 
-a_m <- qed_match(treat ~ age + educ + black + hisp + married, "re78", lalonde, "mahalanobis")
-a_p <- qed_match(treat ~ age + educ + black + hisp + married, "re78", lalonde, "propensityscore")
-b <- Match(lalonde$re78, lalonde$treat, lalonde[1:5])
