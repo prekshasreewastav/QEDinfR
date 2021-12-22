@@ -5,18 +5,20 @@
 #'Estimates a simple Regression Discontinuity Design model with convenient methods
 #'for summary and plotting
 #'
-#'@param y string, name of depedent variable/outcome
+#'@param y string, name of dependent variable/outcome
 #'@param x string, name of independent variable
-#'@param cutoff_criterion number, indicates where the discontinuity in x occurs
-#'@param df A dataframe or tibble
-#'@param transform boolean, whether or not to substract cutoff criterion from \code{x}
-#'@param interaction boolean, whether or not to include an interaction between treatment and the covariate \code{x}
+#'@param cutoff_criterion numeric, indicates where the discontinuity in x occurs
+#'@param df dataframe or tibble
+#'@param transform logical, whether or not to substract cutoff criterion from \code{x}
+#'@param interaction logical, whether or not to include an interaction between treatment and the covariate \code{x}
 #'
 #'
 #'@export
 #'
 #'@details
-#'text
+#'code{QED_rdd} estimates basic regression discontinuity designs and offers a convenient plotting method to display the discontinuous relationship.
+#'The function automatically transforms the discontinuous covariate to center the discontinuity at zero.
+#'By default it allows for an interaction effect.
 #'
 #'@seealso \code{\link[stats]{lm}} \code{\link[QEDinfR]{plot.qed_rdd}}
 #'
