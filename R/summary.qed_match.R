@@ -7,7 +7,7 @@
 #'
 #'@export
 #'
-#'@importFrom tokenizers tokenize_word_stem
+#'@importFrom tokenizers tokenize_word_stems
 #'@importFrom tableone CreateTableOne
 #'@importFrom Matching summary.Match
 #'
@@ -24,9 +24,9 @@
 #'function in the \strong{Matching} package.
 #'
 #'
-#'@seealso \code{\link[Matching]{summary.Match}}
-#'\code{\link[tableone]{CreateTableOne}}
-#'\code{\link[QEDinfR]{qed_match}}
+#'@seealso \code{\link[Matching]{summary.Match}},
+#'\code{\link[tableone]{CreateTableOne}},
+#'\code{\link[QEDinfR]{qed_match}},
 #'\code{\link[QEDinfR]{test.qed_match}}
 #'
 #'@examples

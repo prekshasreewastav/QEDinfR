@@ -16,6 +16,7 @@
 #'@export
 #'
 #'@importFrom Matching Match
+#'@importFrom tokenizers tokenize_word_stems
 #'
 #'@details
 #'This function serves as a wrapper for the \code{\link[Matching]{Match}} function in the \strong{Matching} package, and restricts distance measures to Mahalanobis distances
@@ -28,8 +29,8 @@
 #'   \item{\strong{Data}}{a dataframe containing observations prior to matching}
 #' }
 #'
-#'@seealso \code{\link[Matching]{Match}}
-#'\code{\link[QEDinfR]{summary.qed_match}}
+#'@seealso \code{\link[Matching]{Match}},
+#'\code{\link[QEDinfR]{summary.qed_match}},
 #'\code{\link[QEDinfR]{test.qed_match}}
 #'
 #'@examples
