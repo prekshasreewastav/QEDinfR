@@ -1,0 +1,32 @@
+---
+title: "Differences in Differences"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{did}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Basic Example Code
+
+\code{QEDinfR} provides functions which make basic Difference in Differences designs easy and quick. After specifying your model, the plot method for \code{qed_did} objects quickly creates counterfactual outcome plots which motivate these designs..
+
+```{r setup}
+library(QEDinfR)
+data(banks)
+```
+
+First we run the example code model.
+
+```{r}
+fit <- qed_did("num_banks_in_business", "year", 1930,  "bank_district", "6th district", df = banks)
+summary(fit)
+```
+
