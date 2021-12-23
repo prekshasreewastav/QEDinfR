@@ -30,7 +30,6 @@
 #'\code{\link[QEDinfR]{test.qed_match}}
 #'
 #'@examples
-#'\dontrun{
 #'data(lalonde)
 #'# For matching with propensity scores:
 #'ps_match <- qed_match(treat ~ age + educ + black, "re78", lalonde, "propensityscore", caliper = NULL, replace = FALSE)
@@ -40,7 +39,7 @@
 #' # Summary statistics:
 #' summary(ps_match)
 #' summary(md_match)
-#'}
+#'
 
 summary.qed_match <- function(qed_match, ...){
 

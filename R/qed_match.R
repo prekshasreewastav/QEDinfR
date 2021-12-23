@@ -34,13 +34,13 @@
 #'\code{\link[QEDinfR]{test.qed_match}}
 #'
 #'@examples
-#'\dontrun{
+#'
 #'data(lalonde)
 #'# For matching with propensity scores:
 #'ps_match <- qed_match(treat ~ age + educ + black, "re78", lalonde, "propensityscore", caliper = NULL, replace = FALSE)
 #'# For matching with Mahalanobis distances:
 #'md_match <- qed_match(treat ~ age + educ + black, "re78", lalonde, "mahalanobis", caliper = NULL, replace = FALSE)
-#'}
+#'
 
 
 qed_match <- function(formula, outcome, data, distance, caliper = NULL, replace = FALSE, ...){

@@ -17,11 +17,11 @@
 #' amongst the treatment and control groups. The points signify mean values of the dependent variable pre-treatment and post-treatment.
 #'
 #' @examples
-#' \dontrun{
+#'
 #' data(banks)
 #' fit <- qed_did("num_banks_in_business", "year", 1930,  "bank_district", "6th district", df = banks)
 #' plot(fit)
-#' }
+#'
 
 plot.qed_did <- function(qed_did, ...){
   require(ggplot2)

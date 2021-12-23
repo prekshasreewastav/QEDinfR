@@ -25,11 +25,10 @@
 #'
 #'
 #'@examples
-#'\dontrun{
 #'data(banks)
 #'fit <- qed_did("num_banks_in_business", "year", 1930,  "bank_district", "6th district", df = banks)
 #'summary(fit)
-#'}
+#'
 
 qed_did <- function(y, x, event_time, treated_id, treated, df){
   require(dplyr)

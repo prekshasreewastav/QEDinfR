@@ -26,11 +26,10 @@
 #'@return an object of type \code{qed_rdd}
 #'
 #'@examples
-#'\dontrun{
 #'data(mlda)
 #'fit <- qed_rdd("all", "agecell", 21, mlda)
 #'summary(fit)
-#'}
+#'
 
 qed_rdd <- function(y, x, cutoff_criterion, df, transform = TRUE, interaction = TRUE){
 

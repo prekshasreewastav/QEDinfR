@@ -26,12 +26,12 @@
 #' @return a ggplot object
 #'
 #' @examples
-#' \dontrun{
+#'
 #' data(mlda)
 #' fit <- qed_rdd("mva", "agecell", 21, mlda)
 #' plot(fit)
 #' plot(fit, interaction = FALSE)
-#' }
+#'
 
 plot.qed_rdd <- function(rdd_ls, cutoff = 0, interaction = TRUE){
   require(ggplot2)

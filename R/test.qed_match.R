@@ -23,7 +23,6 @@
 #'\code{\link[QEDinfR]{qed_match}}
 #'
 #'@examples
-#'\dontrun{
 #'data(lalonde)
 #'# For matching with propensity scores and a categorical output:
 #'lalonde$nodegr <- factor(lalonde$nodegr)
@@ -36,7 +35,7 @@
 #'test(ps_match)
 #'# T-test for numeric outcomes:
 #'test(md_match)
-#'}
+#'
 
 test.qed_match <- function(qed_match, ...){
 
