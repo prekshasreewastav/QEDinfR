@@ -25,7 +25,6 @@
 
 plot.qed_did <- function(qed_did, ...){
   require(ggplot2)
-  require(dplyr)
 
   #Extract dataframe from fit
   df <- fit[["model"]]

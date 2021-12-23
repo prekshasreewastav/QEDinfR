@@ -16,22 +16,35 @@ knitr::opts_chunk$set(
 
 # Basic Example Code
 
-\code{QEDinfR} provides functions which make basic Difference in Differences designs easy and quick. After specifying your model, the plot method for \code{qed_did} objects quickly creates trend lines, allowing you to visualise the results.  
+
+
+QEDinfR provides functions which make basic Difference in Differences designs easy and quick. This method allows us to compute the differences between groups, pre and post intervention/treatment. After specifying your model, the plot method for 'qed_did' objects quickly creates simple trend lines, allowing you to visualise results with ease.  
+
 
 ```{r setup}
 library(QEDinfR)
 data(banks)
 ```
 
-First we run the example code model.
+Using data pertaining to the St.Louis FED and Atlanta FED in the early 90s, wherein the former was largely anti-interventionist. Half Mississipi happened to fall under the jurisdiction of the former, while the other half fell under the jurisdiction of the latter. This data shows us the change in the number of banks in Missisipi between its 6th dirtcit (Atlanta FED) and 8th distrct (St. Louis FED) over time, thus, allowing us to estimate the differences in differences.
+
+
+
+First we run the example code model, wherein Number of Banks in Business is the dependent variable and year is the time variable. The time period that the intervention/treatment occurs in is 1930, thus making all years prior to that "pre-treatment", and all years after that "post-treatment". We identify observations in the control group and treatment group by looking at the Bank District variable, and indicate that the "6th district" is the treatment group.
+
 
 ```{r}
 fit <- qed_did("num_banks_in_business", "year", 1930,  "bank_district", "6th district", df = banks)
 summary(fit)
 ```
 
-Next, we plot the trend lines for the treatment and control group from pre-treatment to post-treatment. 
+
+The coefficients above allow us to estimate the differential effects of the treatment on the quasi-experimental design study. Next, we plot the trend lines for the treatment and control group from pre-treatment to post-treatment to visualise the insights from the coefficients of the fitted DID model. The coefficient of the interaction term, treatment:post, in particular allows us to estimate the DID. We see that this the positive effect of the treatment is not significant (p = 0.895)
+
+
 ```{r}
 plot(fit)
 ```
-The above graph allows us to visualise the disparity in differences between the treatment group and control group from one time period (i.e. pre-treatment) to the next time period (i.e. post treatment). 
+
+
+The above graph allows us to visualize the disparity in differences between the treatment group and control group from one time period (i.e. pre-treatment) to the next time period (i.e. post treatment). We see how banks in the 6th distrcit, although, starting off from a substantially lower point than the 8th district, continues to grow from pre-treatment to post-treatment, while banks in the 8th district experience the opposite, as the total number of banks decline from pre-treatment to post-treatment. 

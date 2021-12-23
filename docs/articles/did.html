@@ -88,11 +88,12 @@
 <div id="basic-example-code" class="section level1">
 <h1 class="hasAnchor">
 <a href="#basic-example-code" class="anchor"></a>Basic Example Code</h1>
-<p> provides functions which make basic Difference in Differences designs easy and quick. After specifying your model, the plot method for  objects quickly creates trend lines, allowing you to visualise the results.</p>
+<p>QEDinfR provides functions which make basic Difference in Differences designs easy and quick. This method allows us to compute the differences between groups, pre and post intervention/treatment. After specifying your model, the plot method for ‘qed_did’ objects quickly creates simple trend lines, allowing you to visualise results with ease.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">QEDinfR</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">banks</span><span class="op">)</span></code></pre></div>
-<p>First we run the example code model.</p>
+<p>Using data pertaining to the St.Louis FED and Atlanta FED in the early 90s, wherein the former was largely anti-interventionist. Half Mississipi happened to fall under the jurisdiction of the former, while the other half fell under the jurisdiction of the latter. This data shows us the change in the number of banks in Missisipi between its 6th dirtcit (Atlanta FED) and 8th distrct (St. Louis FED) over time, thus, allowing us to estimate the differences in differences.</p>
+<p>First we run the example code model, wherein Number of Banks in Business is the dependent variable and year is the time variable. The time period that the intervention/treatment occurs in is 1930, thus making all years prior to that “pre-treatment”, and all years after that “post-treatment”. We identify observations in the control group and treatment group by looking at the Bank District variable, and indicate that the “6th district” is the treatment group.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/qed_did.html">qed_did</a></span><span class="op">(</span><span class="st">"num_banks_in_business"</span>, <span class="st">"year"</span>, <span class="fl">1930</span>,  <span class="st">"bank_district"</span>, <span class="st">"6th district"</span>, df <span class="op">=</span> <span class="va">banks</span><span class="op">)</span>
 <span class="co">#&gt; Loading required package: dplyr</span>
@@ -125,11 +126,12 @@
 <span class="co">#&gt; Residual standard error: 24.71 on 8 degrees of freedom</span>
 <span class="co">#&gt; Multiple R-squared:  0.1279, Adjusted R-squared:  -0.1991 </span>
 <span class="co">#&gt; F-statistic: 0.3911 on 3 and 8 DF,  p-value: 0.7628</span></code></pre></div>
-<p>Next, we plot the trend lines for the treatment and control group from pre-treatment to post-treatment.</p>
+<p>The coefficients above allow us to estimate the differential effects of the treatment on the quasi-experimental design study. Next, we plot the trend lines for the treatment and control group from pre-treatment to post-treatment to visualise the insights from the coefficients of the fitted DID model. The coefficient of the interaction term, treatment:post, in particular allows us to estimate the DID. We see that this the positive effect of the treatment is not significant (p = 0.895)</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span>
 <span class="co">#&gt; Loading required package: ggplot2</span></code></pre></div>
-<p><img src="did_files/figure-html/unnamed-chunk-3-1.png" width="700"> The above graph allows us to visualise the disparity in differences between the treatment group and control group from one time period (i.e. pre-treatment) to the next time period (i.e. post treatment).</p>
+<p><img src="did_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
+<p>The above graph allows us to visualize the disparity in differences between the treatment group and control group from one time period (i.e. pre-treatment) to the next time period (i.e. post treatment). We see how banks in the 6th distrcit, although, starting off from a substantially lower point than the 8th district, continues to grow from pre-treatment to post-treatment, while banks in the 8th district experience the opposite, as the total number of banks decline from pre-treatment to post-treatment.</p>
 </div>
   </div>
 
