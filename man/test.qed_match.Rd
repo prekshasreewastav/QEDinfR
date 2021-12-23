@@ -21,7 +21,6 @@ For numeric outcomes, we perform a t-test to check for significant differences i
 For categorical outcomes, we perform a McNemar test to check for odds ratios for the treatment outcomes and control outcomes.
 }
 \examples{
-\dontrun{
 data(lalonde)
 # For matching with propensity scores and a categorical output:
 lalonde$nodegr <- factor(lalonde$nodegr)
@@ -34,7 +33,7 @@ md_match <- qed_match(treat ~ age + educ + black, "re78", lalonde, "mahalanobis"
 test(ps_match)
 # T-test for numeric outcomes:
 test(md_match)
-}
+
 }
 \seealso{
 \code{\link[exact2x2]{mcnemar.exact}}

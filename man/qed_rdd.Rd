@@ -32,11 +32,10 @@ The function automatically transforms the discontinuous covariate to center the 
 By default it allows for an interaction effect.
 }
 \examples{
-\dontrun{
 data(mlda)
 fit <- qed_rdd("all", "agecell", 21, mlda)
 summary(fit)
-}
+
 }
 \seealso{
 \code{\link[stats]{lm}} \code{\link[QEDinfR]{plot.qed_rdd}}

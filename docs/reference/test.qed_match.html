@@ -154,8 +154,7 @@ For categorical outcomes, we perform a McNemar test to check for odds ratios for
 <code><a href='qed_match.html'>qed_match</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>lalonde</span><span class='op'>)</span>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>lalonde</span><span class='op'>)</span>
 <span class='co'># For matching with propensity scores and a categorical output:</span>
 <span class='va'>lalonde</span><span class='op'>$</span><span class='va'>nodegr</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>lalonde</span><span class='op'>$</span><span class='va'>nodegr</span><span class='op'>)</span>
 <span class='va'>ps_match</span> <span class='op'>&lt;-</span> <span class='fu'><a href='qed_match.html'>qed_match</a></span><span class='op'>(</span><span class='va'>treat</span> <span class='op'>~</span> <span class='va'>age</span> <span class='op'>+</span> <span class='va'>educ</span> <span class='op'>+</span> <span class='va'>black</span>, <span class='st'>"nodegr"</span>, <span class='va'>lalonde</span>, <span class='st'>"propensityscore"</span>, caliper <span class='op'>=</span> <span class='cn'>NULL</span>, replace <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
@@ -165,9 +164,26 @@ For categorical outcomes, we perform a McNemar test to check for odds ratios for
 <span class='co'># Outcome Analysis</span>
 <span class='co'># McNemar test for categorical outcomes:</span>
 <span class='fu'><a href='test.html'>test</a></span><span class='op'>(</span><span class='va'>ps_match</span><span class='op'>)</span>
-<span class='co'># T-test for numeric outcomes:</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in exact2x2(x = table(con, trt), alternative = "two.sided", tsmethod = "central",     paired = TRUE): could not find function "exact2x2"</span></div><div class='input'><span class='co'># T-test for numeric outcomes:</span>
 <span class='fu'><a href='test.html'>test</a></span><span class='op'>(</span><span class='va'>md_match</span><span class='op'>)</span>
-<span class='op'>}</span>
+</div><div class='output co'>#&gt; ---------------------------------------
+#&gt;     Numeric Outcome: re78
+#&gt; ---------------------------------------
+#&gt; 
+#&gt; 	Paired t-test
+#&gt; 
+#&gt; data:  con and trt
+#&gt; t = -2.7993, df = 184, p-value = 0.005667
+#&gt; alternative hypothesis: true difference in means is not equal to 0
+#&gt; 95 percent confidence interval:
+#&gt;  -3233.1849  -559.8676
+#&gt; sample estimates:
+#&gt; mean of the differences 
+#&gt;               -1896.526 
+#&gt; 
+#&gt; --------------------------------------- 
+#&gt; The association is statistically significant at the 0.05 level. (p-value = 0.005667293).
+#&gt; On average, observations in the treated group are -1896.526 units below the control group for the outcome (re78).</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

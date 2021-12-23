@@ -32,10 +32,10 @@ By default the plot allows for an interaction effect between \code{x} and the
 treatment; one can however set this to false.
 }
 \examples{
-\dontrun{
+
 data(mlda)
 fit <- qed_rdd("mva", "agecell", 21, mlda)
 plot(fit)
 plot(fit, interaction = FALSE)
-}
+
 }

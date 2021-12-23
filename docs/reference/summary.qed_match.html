@@ -162,8 +162,7 @@ Rules of thumb:</p><dl>
 <code><a href='test.qed_match.html'>test.qed_match</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>lalonde</span><span class='op'>)</span>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>lalonde</span><span class='op'>)</span>
 <span class='co'># For matching with propensity scores:</span>
 <span class='va'>ps_match</span> <span class='op'>&lt;-</span> <span class='fu'><a href='qed_match.html'>qed_match</a></span><span class='op'>(</span><span class='va'>treat</span> <span class='op'>~</span> <span class='va'>age</span> <span class='op'>+</span> <span class='va'>educ</span> <span class='op'>+</span> <span class='va'>black</span>, <span class='st'>"re78"</span>, <span class='va'>lalonde</span>, <span class='st'>"propensityscore"</span>, caliper <span class='op'>=</span> <span class='cn'>NULL</span>, replace <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 <span class='co'># For matching with Mahalanobis distances:</span>
@@ -171,8 +170,88 @@ Rules of thumb:</p><dl>
 
 <span class='co'># Summary statistics:</span>
 <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>ps_match</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>md_match</span><span class='op'>)</span>
-<span class='op'>}</span>
+</div><div class='output co'>#&gt; ---------------------------------------------
+#&gt;        Matching Summary Statistics
+#&gt; ---------------------------------------------
+#&gt; Method: Greedy Matching
+#&gt; Distance Measure: Propensity Score
+#&gt; 
+#&gt; Variables used for Matching: 
+#&gt;  age educ black 
+#&gt;  
+#&gt; % Missing Values: 
+#&gt;   age  educ black 
+#&gt;     0     0     0 
+#&gt; 
+#&gt; Summary:
+#&gt; Estimate...  1671.7 
+#&gt; SE.........  708.22 
+#&gt; T-stat.....  2.3604 
+#&gt; p.val......  0.018253 
+#&gt; 
+#&gt; Original number of observations..............  445 
+#&gt; Original number of treated obs...............  185 
+#&gt; Matched number of observations...............  185 
+#&gt; Matched number of observations  (unweighted).  185 
+#&gt; 
+#&gt; 
+#&gt; Standardized Mean Differences:
+#&gt;   Pre-Matched - 
+#&gt;                    Stratified by treat
+#&gt;                     0            1            SMD   
+#&gt;   n                   260          185              
+#&gt;   age (mean (SD))   25.05 (7.06) 25.82 (7.16)  0.107
+#&gt;   educ (mean (SD))  10.09 (1.61) 10.35 (2.01)  0.141
+#&gt;   black (mean (SD))  0.83 (0.38)  0.84 (0.36)  0.044
+#&gt; 
+#&gt;   Post-Matched - 
+#&gt;                    Stratified by treat
+#&gt;                     0            1            SMD   
+#&gt;   n                   185          185              
+#&gt;   age (mean (SD))   25.63 (7.11) 25.82 (7.16)  0.027
+#&gt;   educ (mean (SD))  10.34 (1.53) 10.35 (2.01)  0.006
+#&gt;   black (mean (SD))  0.83 (0.38)  0.84 (0.36)  0.044</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>md_match</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; ---------------------------------------------
+#&gt;        Matching Summary Statistics
+#&gt; ---------------------------------------------
+#&gt; Method: Greedy Matching
+#&gt; Distance Measure: Mahalanobis
+#&gt; 
+#&gt; Variables used for Matching: 
+#&gt;  age educ black 
+#&gt;  
+#&gt; % Missing Values: 
+#&gt;   age  educ black 
+#&gt;     0     0     0 
+#&gt; 
+#&gt; Summary:
+#&gt; Estimate...  1843.3 
+#&gt; SE.........  669.94 
+#&gt; T-stat.....  2.7514 
+#&gt; p.val......  0.0059341 
+#&gt; 
+#&gt; Original number of observations..............  445 
+#&gt; Original number of treated obs...............  185 
+#&gt; Matched number of observations...............  185 
+#&gt; Matched number of observations  (unweighted).  185 
+#&gt; 
+#&gt; 
+#&gt; Standardized Mean Differences:
+#&gt;   Pre-Matched - 
+#&gt;                    Stratified by treat
+#&gt;                     0            1            SMD   
+#&gt;   n                   260          185              
+#&gt;   age (mean (SD))   25.05 (7.06) 25.82 (7.16)  0.107
+#&gt;   educ (mean (SD))  10.09 (1.61) 10.35 (2.01)  0.141
+#&gt;   black (mean (SD))  0.83 (0.38)  0.84 (0.36)  0.044
+#&gt; 
+#&gt;   Post-Matched - 
+#&gt;                    Stratified by treat
+#&gt;                     0            1            SMD   
+#&gt;   n                   185          185              
+#&gt;   age (mean (SD))   25.69 (6.87) 25.82 (7.16)  0.018
+#&gt;   educ (mean (SD))  10.29 (1.66) 10.35 (2.01)  0.032
+#&gt;   black (mean (SD))  0.84 (0.36)  0.84 (0.36) &lt;0.001</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

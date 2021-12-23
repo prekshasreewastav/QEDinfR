@@ -27,7 +27,6 @@ Rules of thumb:
 }
 }
 \examples{
-\dontrun{
 data(lalonde)
 # For matching with propensity scores:
 ps_match <- qed_match(treat ~ age + educ + black, "re78", lalonde, "propensityscore", caliper = NULL, replace = FALSE)
@@ -37,7 +36,7 @@ md_match <- qed_match(treat ~ age + educ + black, "re78", lalonde, "mahalanobis"
 # Summary statistics:
 summary(ps_match)
 summary(md_match)
-}
+
 }
 \seealso{
 \code{\link[Matching]{summary.Match}},

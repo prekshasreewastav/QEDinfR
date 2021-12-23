@@ -43,13 +43,13 @@ This function serves as a wrapper for the \code{\link[Matching]{Match}} function
 and Propensity Scores (calculated through a logistic regression). It aims to balance the treatment and control groups on all included covariates in order to perform causal analysis.
 }
 \examples{
-\dontrun{
+
 data(lalonde)
 # For matching with propensity scores:
 ps_match <- qed_match(treat ~ age + educ + black, "re78", lalonde, "propensityscore", caliper = NULL, replace = FALSE)
 # For matching with Mahalanobis distances:
 md_match <- qed_match(treat ~ age + educ + black, "re78", lalonde, "mahalanobis", caliper = NULL, replace = FALSE)
-}
+
 }
 \seealso{
 \code{\link[Matching]{Match}},

@@ -30,11 +30,10 @@ The function automatically generates the post-treatment and treated indicators f
 The \code{summary.lm} method provides the appropriate summary statistics.
 }
 \examples{
-\dontrun{
 data(banks)
 fit <- qed_did("num_banks_in_business", "year", 1930,  "bank_district", "6th district", df = banks)
 summary(fit)
-}
+
 }
 \seealso{
 \code{\link[stats]{lm}}

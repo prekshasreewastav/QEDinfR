@@ -173,11 +173,31 @@ By default it allows for an interaction effect.</p>
     <div class='dont-index'><p><code><a href='https://rdrr.io/r/stats/lm.html'>lm</a></code> <code><a href='plot.qed_rdd.html'>plot.qed_rdd</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>mlda</span><span class='op'>)</span>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>mlda</span><span class='op'>)</span>
 <span class='va'>fit</span> <span class='op'>&lt;-</span> <span class='fu'>qed_rdd</span><span class='op'>(</span><span class='st'>"all"</span>, <span class='st'>"agecell"</span>, <span class='fl'>21</span>, <span class='va'>mlda</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>fit</span><span class='op'>)</span>
-<span class='op'>}</span>
+</div><div class='output co'>#&gt; 
+#&gt; Call:
+#&gt; lm(formula = all ~ agecell * treated, data = data)
+#&gt; 
+#&gt; Residuals:
+#&gt;    Min     1Q Median     3Q    Max 
+#&gt; -4.368 -1.787  0.117  1.108  5.341 
+#&gt; 
+#&gt; Coefficients:
+#&gt;                     Estimate Std. Error t value Pr(&gt;|t|)    
+#&gt; (Intercept)          93.6184     0.9325 100.399  &lt; 2e-16 ***
+#&gt; agecell               0.8270     0.8189   1.010  0.31809    
+#&gt; treatedTRUE           7.6627     1.3187   5.811  6.4e-07 ***
+#&gt; agecell:treatedTRUE  -3.6034     1.1581  -3.111  0.00327 ** 
+#&gt; ---
+#&gt; Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#&gt; 
+#&gt; Residual standard error: 2.283 on 44 degrees of freedom
+#&gt;   (2 observations deleted due to missingness)
+#&gt; Multiple R-squared:  0.6677,	Adjusted R-squared:  0.645 
+#&gt; F-statistic: 29.47 on 3 and 44 DF,  p-value: 1.325e-10
+#&gt; </div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

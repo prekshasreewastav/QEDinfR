@@ -20,9 +20,9 @@ This function serves as a generic plot method for objects of class "qed_did", a 
 Edits can be made to the plots using ggplot functions (such as changes to axis ticks, labels, etc).
 }
 \examples{
-\dontrun{
+
 data(banks)
 fit <- qed_did("num_banks_in_business", "year", 1930,  "bank_district", "6th district", df = banks)
 plot(fit)
-}
+
 }
