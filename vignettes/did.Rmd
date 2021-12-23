@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 # Basic Example Code
 
-\code{QEDinfR} provides functions which make basic Difference in Differences designs easy and quick. After specifying your model, the plot method for \code{qed_did} objects quickly creates counterfactual outcome plots which motivate these designs..
+\code{QEDinfR} provides functions which make basic Difference in Differences designs easy and quick. After specifying your model, the plot method for \code{qed_did} objects quickly creates trend lines, allowing you to visualise the results.  
 
 ```{r setup}
 library(QEDinfR)
@@ -30,3 +30,8 @@ fit <- qed_did("num_banks_in_business", "year", 1930,  "bank_district", "6th dis
 summary(fit)
 ```
 
+Next, we plot the trend lines for the treatment and control group from pre-treatment to post-treatment. 
+```{r}
+plot(fit)
+```
+The above graph allows us to visualise the disparity in differences between the treatment group and control group from one time period (i.e. pre-treatment) to the next time period (i.e. post treatment). 

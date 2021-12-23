@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">QEDinfR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.000</span>
       </span>
     </div>
 
@@ -72,7 +72,7 @@
 
       
 
-      </header><script src="did_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
+      </header><script src="did_files/header-attrs-2.10/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Differences in Differences</h1>
@@ -88,7 +88,7 @@
 <div id="basic-example-code" class="section level1">
 <h1 class="hasAnchor">
 <a href="#basic-example-code" class="anchor"></a>Basic Example Code</h1>
-<p> provides functions which make basic Difference in Differences designs easy and quick. After specifying your model, the plot method for  objects quickly creates counterfactual outcome plots which motivate these designs..</p>
+<p> provides functions which make basic Difference in Differences designs easy and quick. After specifying your model, the plot method for  objects quickly creates trend lines, allowing you to visualise the results.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">QEDinfR</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">banks</span><span class="op">)</span></code></pre></div>
@@ -125,6 +125,11 @@
 <span class="co">#&gt; Residual standard error: 24.71 on 8 degrees of freedom</span>
 <span class="co">#&gt; Multiple R-squared:  0.1279, Adjusted R-squared:  -0.1991 </span>
 <span class="co">#&gt; F-statistic: 0.3911 on 3 and 8 DF,  p-value: 0.7628</span></code></pre></div>
+<p>Next, we plot the trend lines for the treatment and control group from pre-treatment to post-treatment.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span>
+<span class="co">#&gt; Loading required package: ggplot2</span></code></pre></div>
+<p><img src="did_files/figure-html/unnamed-chunk-3-1.png" width="700"> The above graph allows us to visualise the disparity in differences between the treatment group and control group from one time period (i.e. pre-treatment) to the next time period (i.e. post treatment).</p>
 </div>
   </div>
 

@@ -23,10 +23,11 @@ qed_did(y, x, event_time, treated_id, treated, df)
 object of type \code{qed_did}
 }
 \description{
-text
+code{QED_did} estimates basic difference in difference designs and provides a convenient plotting utility to visualize counter factual outcomes following the parallel trends assumption.
 }
 \details{
-text
+The function automatically generates the post-treatment and treated indicators for estimating the model, and one may generate plots with \code{QED_did} objects easily with its plot method.
+The \code{summary.lm} method provides the appropriate summary statistics.
 }
 \examples{
 \dontrun{

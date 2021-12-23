@@ -1,10 +1,12 @@
 Package: QEDinfR
 Title: Quasi-Experimental Design and Inference Tools
-Version: 0.0.0.9000
+Version: 0.0.1.000
 Authors@R: 
     person("Preksha", "Sreewastav", , "psreewastav@wesleyan.edu", role = c("aut", "cre"))
     person("Grant", "Westfahl", , "gwestfahl@wesleyan.edu", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Description: QEDinfR offers simple tools to facilitate the use of basic quasi-experimental designs for 
+    causal inference in observational settings including Greedy Matching methods 
+    (with Mahalanobis distances or Propensity Scores), Regression Discontinuity, and Differences-in-Differences. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -12,7 +14,11 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Imports: 
     dplyr,
-    ggplot2
+    ggplot2,
+    exact2x2,
+    Matching,
+    tableone,
+    tokenizers
 Suggests: 
     rmarkdown,
     knitr

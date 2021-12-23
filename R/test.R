@@ -37,4 +37,5 @@
 #'# T-test for numeric outcomes:
 #'test(md_match)
 #'}
+
 test <- function(x, ...) UseMethod("test")
