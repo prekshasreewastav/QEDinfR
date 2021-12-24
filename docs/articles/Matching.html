@@ -118,9 +118,9 @@
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Summary:</span>
 <span class="co">#&gt; Estimate...  -0.075676 </span>
-<span class="co">#&gt; SE.........  0.033731 </span>
-<span class="co">#&gt; T-stat.....  -2.2435 </span>
-<span class="co">#&gt; p.val......  0.024864 </span>
+<span class="co">#&gt; SE.........  0.034586 </span>
+<span class="co">#&gt; T-stat.....  -2.188 </span>
+<span class="co">#&gt; p.val......  0.028668 </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Original number of observations..............  445 </span>
 <span class="co">#&gt; Original number of treated obs...............  185 </span>
@@ -142,8 +142,8 @@
 <span class="co">#&gt;                     0            1            SMD   </span>
 <span class="co">#&gt;   n                   185          185              </span>
 <span class="co">#&gt;   age (mean (SD))   25.63 (7.11) 25.82 (7.16)  0.027</span>
-<span class="co">#&gt;   educ (mean (SD))  10.35 (1.51) 10.35 (2.01) &lt;0.001</span>
-<span class="co">#&gt;   black (mean (SD))  0.82 (0.39)  0.84 (0.36)  0.072</span></code></pre></div>
+<span class="co">#&gt;   educ (mean (SD))  10.34 (1.51) 10.35 (2.01)  0.003</span>
+<span class="co">#&gt;   black (mean (SD))  0.82 (0.38)  0.84 (0.36)  0.058</span></code></pre></div>
 <p>From the above summary statistics, we see that Greedy Matching using Propensity Scores has reduced the Standardized Mean Differences (SMD) between the control group and treatment group on most included covariates, with the exception of ‘black’. However, following the general rule of thumb that SMD values &lt; 0.1 are desirable, this data is now ready to perform outcome analysis on.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">QEDinfR</span><span class="fu">::</span><span class="fu"><a href="../reference/test.html">test</a></span><span class="op">(</span><span class="va">ps_match</span><span class="op">)</span>
@@ -155,17 +155,17 @@
 <span class="co">#&gt;  Exact McNemar test (with central confidence intervals)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; data:  table(con, trt)</span>
-<span class="co">#&gt; b = 13, c = 27, p-value = 0.03848</span>
+<span class="co">#&gt; b = 14, c = 28, p-value = 0.04356</span>
 <span class="co">#&gt; alternative hypothesis: true odds ratio is not equal to 1</span>
 <span class="co">#&gt; 95 percent confidence interval:</span>
-<span class="co">#&gt;  0.2280923 0.9657754</span>
+<span class="co">#&gt;  0.2432678 0.9821113</span>
 <span class="co">#&gt; sample estimates:</span>
 <span class="co">#&gt; odds ratio </span>
-<span class="co">#&gt;  0.4814815 </span>
+<span class="co">#&gt;        0.5 </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; --------------------------------------- </span>
-<span class="co">#&gt; The association is statistically significant at the 0.05 level. (p-value = 0.03847731)</span>
-<span class="co">#&gt; Observations in the treated group are 0.4814815 as likely to be a positive case* </span>
+<span class="co">#&gt; The association is statistically significant at the 0.05 level. (p-value = 0.04355852)</span>
+<span class="co">#&gt; Observations in the treated group are 0.5 as likely to be a positive case* </span>
 <span class="co">#&gt; *(i.e. belong to outcome (nodegr) level = 1).</span></code></pre></div>
 <p>Given that the variable of interest was categorical (whether or not a person had attained a highschool diploma), we perform a Mcnemar test to check for odds ratios between the control group and treatment group with respect to the outcome variable, ‘nodegr’.</p>
 <p>From the results, we see that the association is significant at the 0.05 level, and people in the treated group are 0.4167 times as likely to not obtain a highscool degree.</p>
@@ -191,10 +191,10 @@
 <span class="co">#&gt;     0     0     0 </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Summary:</span>
-<span class="co">#&gt; Estimate...  1664.7 </span>
-<span class="co">#&gt; SE.........  891.95 </span>
-<span class="co">#&gt; T-stat.....  1.8663 </span>
-<span class="co">#&gt; p.val......  0.061997 </span>
+<span class="co">#&gt; Estimate...  2027.5 </span>
+<span class="co">#&gt; SE.........  891.04 </span>
+<span class="co">#&gt; T-stat.....  2.2754 </span>
+<span class="co">#&gt; p.val......  0.022883 </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Original number of observations..............  445 </span>
 <span class="co">#&gt; Original number of treated obs...............  185 </span>
@@ -231,17 +231,17 @@
 <span class="co">#&gt;  Paired t-test</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; data:  con and trt</span>
-<span class="co">#&gt; t = -1.8576, df = 106, p-value = 0.066</span>
+<span class="co">#&gt; t = -2.2647, df = 106, p-value = 0.02556</span>
 <span class="co">#&gt; alternative hypothesis: true difference in means is not equal to 0</span>
 <span class="co">#&gt; 95 percent confidence interval:</span>
-<span class="co">#&gt;  -3441.380   112.038</span>
+<span class="co">#&gt;  -3802.3580  -252.5696</span>
 <span class="co">#&gt; sample estimates:</span>
 <span class="co">#&gt; mean of the differences </span>
-<span class="co">#&gt;               -1664.671 </span>
+<span class="co">#&gt;               -2027.464 </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; --------------------------------------- </span>
-<span class="co">#&gt; The association is statistically significant at the 0.1 level. (p-value = 0.0660049)</span>
-<span class="co">#&gt; On average, observations in the treated group are -1664.671 units below the control group for the outcome (re78).</span></code></pre></div>
+<span class="co">#&gt; The association is statistically significant at the 0.05 level. (p-value = 0.02556398)</span>
+<span class="co">#&gt; On average, observations in the treated group are -2027.464 units below the control group for the outcome (re78).</span></code></pre></div>
 <p>We use a paired t-test to test for a significant association between real earnings in 1978, ‘re78’, and whether the person belonged to the treatment group or control group. From the results above, we see that the association was significant at the 0.05 level (in fact, p &lt; 0.01). A person that received treatment, on average, made $2053.79 lesser in real earnings than a person that hadn’t in the year 1978.</p>
 </div>
 </div>

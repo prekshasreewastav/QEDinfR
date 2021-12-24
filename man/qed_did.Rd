@@ -13,21 +13,21 @@ qed_did(y, x, event_time, treated_id, treated, df)
 
 \item{event_time}{numeric, when the event occurred}
 
-\item{treated_id}{string, name of the identifying variable in \code{df}}
+\item{treated_id}{string, name of the identifying variable in df}
 
 \item{treated}{vector of the same type as the identifier variable, indicates which identifiers were treated by the event}
 
 \item{df}{a dataframe or tibble}
 }
 \value{
-object of type \code{qed_did}
+object of type \code{\link[QEDinfR]{qed_did}}
 }
 \description{
-code{QED_did} estimates basic difference in difference designs and provides a convenient plotting utility to visualize counter factual outcomes following the parallel trends assumption.
+\code{\link[QEDinfR]{qed_did}} estimates basic difference in difference designs and provides a convenient plotting utility to visualize counter factual outcomes following the parallel trends assumption.
 }
 \details{
-The function automatically generates the post-treatment and treated indicators for estimating the model, and one may generate plots with \code{QED_did} objects easily with its plot method.
-The \code{summary.lm} method provides the appropriate summary statistics.
+The function automatically generates the post-treatment and treated indicators for estimating the model, and one may generate plots with \code{\link[QEDinfR]{qed_did}} objects easily with its plot method.
+The \code{\link[base]{summary.lm}} method provides the appropriate summary statistics.
 }
 \examples{
 data(banks)

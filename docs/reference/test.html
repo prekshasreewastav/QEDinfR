@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Generic Method for Outcome Analysis for Matched data (to estimate treatment effects) — test • QEDinfR</title>
+<title>Generic Method for Outcome Analysis — test • QEDinfR</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Generic Method for Outcome Analysis for Matched data (to estimate treatment effects) — test" />
-<meta property="og:description" content="Testing method for object of class &quot;qed_match&quot;." />
+<meta property="og:title" content="Generic Method for Outcome Analysis — test" />
+<meta property="og:description" content="test is a generic function for hypothesis testing/outcome analysis. The function invokes particular methods which depend on the class of the first argument." />
 
 
 
@@ -121,13 +121,13 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Generic Method for Outcome Analysis for Matched data (to estimate treatment effects)</h1>
+    <h1>Generic Method for Outcome Analysis</h1>
     
     <div class="hidden name"><code>test.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Testing method for object of class "qed_match".</p>
+    <p><strong>test</strong> is a generic function for hypothesis testing/outcome analysis. The function invokes particular methods which depend on the class of the first argument.</p>
     </div>
 
     <pre class="usage"><span class='fu'>test</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span></pre>
@@ -136,24 +136,20 @@
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>qed_match</th>
-      <td><p>an object of class "qed_match", a result of a call to <a href='qed_match.html'>qed_match</a> (which is a wrapper for <a href='https://rdrr.io/pkg/Matching/man/Match.html'>Match</a>)</p></td>
+      <th>object</th>
+      <td><p>an object to be tested</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The function <strong>test.qed_match</strong> computes and prints outcome analysis to estimate treatment effects for data that Greedy Matching has been performed on using the <a href='qed_match.html'>qed_match</a> function.
-It also provides an easy interpretation of test results.</p>
+    <p>The function <strong>test</strong> computes and prints outcome analysis or hypothesis testing for various object classes.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>For numeric outcomes, we perform a t-test to check for significant differences in means between groups.
-For categorical outcomes, we perform a McNemar test to check for odds ratios for the treatment outcomes and control outcomes.</p>
+    <p>As of now, this generic method supports outcome analysis for matched objects using the <strong>QEDinfR</strong> package.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/exact2x2/man/exact2x2.html'>mcnemar.exact</a></code>
-<code>t.test</code>
-<code><a href='qed_match.html'>qed_match</a></code></p></div>
+    <div class='dont-index'><p><code><a href='test.qed_match.html'>test.qed_match</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>lalonde</span><span class='op'>)</span>

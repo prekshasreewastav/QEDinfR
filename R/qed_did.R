@@ -1,12 +1,12 @@
 #' @title qed_did: Difference in Difference Designs
 #'
 #' @description
-#' code{QED_did} estimates basic difference in difference designs and provides a convenient plotting utility to visualize counter factual outcomes following the parallel trends assumption.
+#' \code{\link[QEDinfR]{qed_did}} estimates basic difference in difference designs and provides a convenient plotting utility to visualize counter factual outcomes following the parallel trends assumption.
 #'
 #' @param y string, name of the outcome variable in dataframe
 #' @param x string, name of the time variable
 #' @param event_time numeric, when the event occurred
-#' @param treated_id string, name of the identifying variable in \code{df}
+#' @param treated_id string, name of the identifying variable in df
 #' @param treated vector of the same type as the identifier variable, indicates which identifiers were treated by the event
 #' @param df a dataframe or tibble
 #'
@@ -15,13 +15,13 @@
 #' @export
 #'
 #' @details
-#' The function automatically generates the post-treatment and treated indicators for estimating the model, and one may generate plots with \code{QED_did} objects easily with its plot method.
-#' The \code{summary.lm} method provides the appropriate summary statistics.
+#' The function automatically generates the post-treatment and treated indicators for estimating the model, and one may generate plots with \code{\link[QEDinfR]{qed_did}} objects easily with its plot method.
+#' The \code{\link[base]{summary.lm}} method provides the appropriate summary statistics.
 #'
 #'
 #' @seealso \code{\link[stats]{lm}}
 #'
-#' @return object of type \code{qed_did}
+#' @return object of type \code{\link[QEDinfR]{qed_did}}
 #'
 #'
 #'@examples

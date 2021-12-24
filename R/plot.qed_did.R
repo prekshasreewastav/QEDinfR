@@ -27,7 +27,7 @@ plot.qed_did <- function(qed_did, ...){
   require(ggplot2)
 
   #Extract dataframe from fit
-  df <- fit[["model"]]
+  df <- qed_did[["model"]]
 
  #Plot trends by treatment and post
   ggplot()+

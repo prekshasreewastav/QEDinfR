@@ -7,18 +7,16 @@
 test(x, ...)
 }
 \arguments{
-\item{qed_match}{an object of class "qed_match", a result of a call to \link[QEDinfR]{qed_match} (which is a wrapper for \link[Matching]{Match})}
+\item{object}{an object to be tested}
 }
 \value{
-The function \strong{test.qed_match} computes and prints outcome analysis to estimate treatment effects for data that Greedy Matching has been performed on using the \link[QEDinfR]{qed_match} function.
-It also provides an easy interpretation of test results.
+The function \strong{test} computes and prints outcome analysis or hypothesis testing for various object classes.
 }
 \description{
-Testing method for object of class "qed_match".
+\strong{test} is a generic function for hypothesis testing/outcome analysis. The function invokes particular methods which depend on the class of the first argument.
 }
 \details{
-For numeric outcomes, we perform a t-test to check for significant differences in means between groups.
-For categorical outcomes, we perform a McNemar test to check for odds ratios for the treatment outcomes and control outcomes.
+As of now, this generic method supports outcome analysis for matched objects using the \strong{QEDinfR} package.
 }
 \examples{
 data(lalonde)
@@ -36,7 +34,5 @@ test(md_match)
 
 }
 \seealso{
-\code{\link[exact2x2]{mcnemar.exact}}
-\code{\link[base]{t.test}}
-\code{\link[QEDinfR]{qed_match}}
+\code{\link[QEDinfR]{test.qed_match}}
 }

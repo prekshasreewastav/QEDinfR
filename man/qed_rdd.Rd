@@ -15,19 +15,19 @@ qed_rdd(y, x, cutoff_criterion, df, transform = TRUE, interaction = TRUE)
 
 \item{df}{dataframe or tibble}
 
-\item{transform}{logical, whether or not to substract cutoff criterion from \code{x}}
+\item{transform}{logical, whether or not to subtract cutoff criterion from}
 
-\item{interaction}{logical, whether or not to include an interaction between treatment and the covariate \code{x}}
+\item{interaction}{logical, whether or not to include an interaction between treatment and the covariate}
 }
 \value{
-an object of type \code{qed_rdd}
+an object of type \code{\link[QEDinfR]{qed_rdd}}
 }
 \description{
 Estimates a simple Regression Discontinuity Design model with convenient methods
 for summary and plotting
 }
 \details{
-code{QED_rdd} estimates basic regression discontinuity designs and offers a convenient plotting method to display the discontinuous relationship.
+\code{\link[QEDinfR]{qed_rdd}} estimates basic regression discontinuity designs and offers a convenient plotting method to display the discontinuous relationship.
 The function automatically transforms the discontinuous covariate to center the discontinuity at zero.
 By default it allows for an interaction effect.
 }

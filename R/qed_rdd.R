@@ -9,21 +9,21 @@
 #'@param x string, name of independent variable
 #'@param cutoff_criterion numeric, indicates where the discontinuity in x occurs
 #'@param df dataframe or tibble
-#'@param transform logical, whether or not to substract cutoff criterion from \code{x}
-#'@param interaction logical, whether or not to include an interaction between treatment and the covariate \code{x}
+#'@param transform logical, whether or not to subtract cutoff criterion from
+#'@param interaction logical, whether or not to include an interaction between treatment and the covariate
 #'
 #'
 #'@export
 #'
 #'@details
-#'code{QED_rdd} estimates basic regression discontinuity designs and offers a convenient plotting method to display the discontinuous relationship.
+#'\code{\link[QEDinfR]{qed_rdd}} estimates basic regression discontinuity designs and offers a convenient plotting method to display the discontinuous relationship.
 #'The function automatically transforms the discontinuous covariate to center the discontinuity at zero.
 #'By default it allows for an interaction effect.
 #'
 #'@seealso \code{\link[stats]{lm}} \code{\link[QEDinfR]{plot.qed_rdd}}
 #'
 #'
-#'@return an object of type \code{qed_rdd}
+#'@return an object of type \code{\link[QEDinfR]{qed_rdd}}
 #'
 #'@examples
 #'data(mlda)
