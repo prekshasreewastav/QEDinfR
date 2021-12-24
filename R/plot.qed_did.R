@@ -19,8 +19,8 @@
 #' @examples
 #'
 #' data(banks)
-#' fit <- qed_did("num_banks_in_business", "year", 1930,  "bank_district", "6th district", df = banks)
-#' plot(fit)
+#' did <- qed_did("num_banks_in_business", "year", 1930,  "bank_district", "6th district", df = banks)
+#' plot(did)
 #'
 
 plot.qed_did <- function(qed_did, ...){

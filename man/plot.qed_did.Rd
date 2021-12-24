@@ -22,7 +22,7 @@ Edits can be made to the plots using ggplot functions (such as changes to axis t
 \examples{
 
 data(banks)
-fit <- qed_did("num_banks_in_business", "year", 1930,  "bank_district", "6th district", df = banks)
-plot(fit)
+did <- qed_did("num_banks_in_business", "year", 1930,  "bank_district", "6th district", df = banks)
+plot(did)
 
 }

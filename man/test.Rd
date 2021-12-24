@@ -2,7 +2,7 @@
 % Please edit documentation in R/test.R
 \name{test}
 \alias{test}
-\title{Generic Method for Outcome Analysis for Matched data (to estimate treatment effects)}
+\title{Generic Method for Outcome Analysis}
 \usage{
 test(x, ...)
 }

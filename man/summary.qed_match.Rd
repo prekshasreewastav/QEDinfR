@@ -2,7 +2,7 @@
 % Please edit documentation in R/summary.qed_match.R
 \name{summary.qed_match}
 \alias{summary.qed_match}
-\title{Summary.qed_match: Summarazing Matching statistics}
+\title{Generic summarizing function for "qed_match" objects}
 \usage{
 \method{summary}{qed_match}(qed_match, ...)
 }

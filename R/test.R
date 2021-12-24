@@ -1,4 +1,4 @@
-#'@title Generic Method for Outcome Analysis for Matched data (to estimate treatment effects)
+#'@title Generic Method for Outcome Analysis
 #'
 #'@description
 #'Testing method for object of class "qed_match".
@@ -8,7 +8,7 @@
 #'@export
 #'
 #'@importFrom exact2x2 mcnemar.exact
-#'
+#'@importFrom exact2x2 exact2x2
 #'
 #'@details
 #'For numeric outcomes, we perform a t-test to check for significant differences in means between groups.

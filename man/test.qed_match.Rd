@@ -2,7 +2,7 @@
 % Please edit documentation in R/test.qed_match.R
 \name{test.qed_match}
 \alias{test.qed_match}
-\title{Outcome Analysis for Matched data (to estimate treatment effects)}
+\title{Outcome Analysis for for "qed_match" objects}
 \usage{
 \method{test}{qed_match}(qed_match, ...)
 }
@@ -14,7 +14,7 @@ The function \strong{test.qed_match} computes and prints outcome analysis to est
 It also provides an easy interpretation of test results.
 }
 \description{
-Testing method for object of class "qed_match".
+Testing method for object of class "qed_match" that allows one to estimate treatment effects from matched data.
 }
 \details{
 For numeric outcomes, we perform a t-test to check for significant differences in means between groups.

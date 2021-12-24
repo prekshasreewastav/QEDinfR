@@ -1,4 +1,4 @@
-#'@title Summary.qed_match: Summarazing Matching statistics
+#'@title Generic summarizing function for "qed_match" objects
 #'
 #'@description
 #'Summary method for class "qed_match", which provides relevant pre-matched and post-matched summary statistics.

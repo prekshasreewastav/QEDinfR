@@ -95,6 +95,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/Matching.html">Greedy Matching Methods</a>
+    </li>
+    <li>
       <a href="../articles/did.html">Differences in Differences</a>
     </li>
     <li>
@@ -163,7 +166,26 @@ For categorical outcomes, we perform a McNemar test to check for odds ratios for
 <span class='co'># Outcome Analysis</span>
 <span class='co'># McNemar test for categorical outcomes:</span>
 <span class='fu'>test</span><span class='op'>(</span><span class='va'>ps_match</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in exact2x2(x = table(con, trt), alternative = "two.sided", tsmethod = "central",     paired = TRUE): could not find function "exact2x2"</span></div><div class='input'><span class='co'># T-test for numeric outcomes:</span>
+</div><div class='output co'>#&gt; ---------------------------------------
+#&gt;     Categorical Outcome: nodegr
+#&gt; ---------------------------------------
+#&gt; 
+#&gt; 
+#&gt; 	Exact McNemar test (with central confidence intervals)
+#&gt; 
+#&gt; data:  table(con, trt)
+#&gt; b = 12, c = 26, p-value = 0.03355
+#&gt; alternative hypothesis: true odds ratio is not equal to 1
+#&gt; 95 percent confidence interval:
+#&gt;  0.2121584 0.9475223
+#&gt; sample estimates:
+#&gt; odds ratio 
+#&gt;  0.4615385 
+#&gt; 
+#&gt; --------------------------------------- 
+#&gt; The association is statistically significant at the 0.05 level. (p-value = 0.03355244)
+#&gt; Observations in the treated group are 0.4615385 as likely to be a positive case* 
+#&gt; *(i.e. belong to outcome (nodegr) level = 1).</div><div class='input'><span class='co'># T-test for numeric outcomes:</span>
 <span class='fu'>test</span><span class='op'>(</span><span class='va'>md_match</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; ---------------------------------------
 #&gt;     Numeric Outcome: re78
@@ -181,7 +203,7 @@ For categorical outcomes, we perform a McNemar test to check for odds ratios for
 #&gt;               -2003.338 
 #&gt; 
 #&gt; --------------------------------------- 
-#&gt; The association is statistically significant at the 0.05 level. (p-value = 0.004016937).
+#&gt; The association is statistically significant at the 0.01 level. (p-value = 0.004016937)
 #&gt; On average, observations in the treated group are -2003.338 units below the control group for the outcome (re78).</div><div class='input'>
 </div></pre>
   </div>

@@ -1,4 +1,4 @@
-#' @title Plotting Utilities for QED_RDD objects
+#' @title Generic plotting function for "qed_rdd" objects
 #'
 #' @description
 #' provides convenient plot method for qed_rdd objects

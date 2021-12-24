@@ -1,13 +1,14 @@
-#'@title Outcome Analysis for Matched data (to estimate treatment effects)
+#'@title Outcome Analysis for for "qed_match" objects
 #'
 #'@description
-#'Testing method for object of class "qed_match".
+#'Testing method for object of class "qed_match" that allows one to estimate treatment effects from matched data.
 #'
 #'@param qed_match an object of class "qed_match", a result of a call to \link[QEDinfR]{qed_match} (which is a wrapper for \link[Matching]{Match})
 #'
 #'@export
 #'
 #'@importFrom exact2x2 mcnemar.exact
+#'@importFrom exact2x2 exact2x2
 #'
 #'
 #'@details
@@ -60,9 +61,22 @@ test.qed_match <- function(qed_match, ...){
     print(test)
     cat("---------------------------------------", "\n")
 
-    if(test$p.value < 0.05)
-      {cat("The association is statistically significant at the 0.05 level. ", "(p-value = ",
+    if(test$p.value < 0.001)
+      {cat("The association is statistically significant at the 0.001 level. ", "(p-value = ",
                                 test$p.value, ")", "\n", sep="")}
+    else if(test$p.value < 0.01)
+    {cat("The association is statistically significant at the 0.01 level. ", "(p-value = ",
+         test$p.value, ")", "\n", sep="")}
+    else if(test$p.value < 0.05)
+    {cat("The association is statistically significant at the 0.05 level. ", "(p-value = ",
+         test$p.value, ")", "\n", sep="")}
+    else if(test$p.value < 0.1)
+    {cat("The association is statistically significant at the 0.1 level. ", "(p-value = ",
+         test$p.value, ")", "\n", sep="")}
+    else
+    {cat("The association is not statistically significant at convetional levels. ", "(p-value = ",
+         test$p.value, ")", "\n", sep="")}
+
 
     if(test$estimate > 1)
       {cat("Observations in the treated group are ", test$estimate, " times more likely to be a positive case* ",
@@ -80,9 +94,22 @@ test.qed_match <- function(qed_match, ...){
     print(test)
     cat("---------------------------------------", "\n")
 
-    if(test$p.value < 0.05)
+    if(test$p.value < 0.001)
+    {cat("The association is statistically significant at the 0.001 level. ", "(p-value = ",
+         test$p.value, ")", "\n", sep="")}
+    else if(test$p.value < 0.01)
+    {cat("The association is statistically significant at the 0.01 level. ", "(p-value = ",
+         test$p.value, ")", "\n", sep="")}
+    else if(test$p.value < 0.05)
     {cat("The association is statistically significant at the 0.05 level. ", "(p-value = ",
-         test$p.value, ").", "\n", sep="")}
+         test$p.value, ")", "\n", sep="")}
+    else if(test$p.value < 0.1)
+    {cat("The association is statistically significant at the 0.1 level. ", "(p-value = ",
+         test$p.value, ")", "\n", sep="")}
+    else
+    {cat("The association is not statistically significant at convetional levels. ", "(p-value = ",
+         test$p.value, ")", "\n", sep="")}
+
     if(test$estimate > 0){flag = "above"}
     else{flag = "below"}
     cat("On average, observations in the treated group are ", test$estimate, " units ", flag,

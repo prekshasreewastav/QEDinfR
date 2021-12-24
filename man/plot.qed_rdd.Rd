@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot.qed_rdd.R
 \name{plot.qed_rdd}
 \alias{plot.qed_rdd}
-\title{Plotting Utilities for QED_RDD objects}
+\title{Generic plotting function for "qed_rdd" objects}
 \usage{
 \method{plot}{qed_rdd}(rdd_ls, cutoff = 0, interaction = TRUE)
 }
